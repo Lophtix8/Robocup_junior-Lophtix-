@@ -16,10 +16,10 @@ start = 8
 
 def mapping():
 	if d == 0:
-    	if laserValue('L') > 10:
-			map[str(x+1) + ',' + str(y)] = noWall
+		if laserValue('L') > 10:
+			map[str(x-1) + ',' + str(y)] = noWall
 		else:
-      		map[str(x+1) + ',' + str(y)] = wall
+			map[str(x-1) + ',' + str(y)] = wall
 			
 		if laserValue('R') > 10:
 			map[str(x+1) + ',' + str(y)] = noWall
@@ -36,11 +36,11 @@ def mapping():
 		else:
 			map[str(x) + ',' + str(y-1)] = wall
 			
-  	elif d == 1:
-    	if laserValue('L') > 10:
+	elif d == 1:
+		if laserValue('L') > 10:
 			map[str(x) + ',' + str(y+1)] = noWall
 		else:
-      		map[str(x+1) + ',' + str(y+1)] = wall
+			map[str(x) + ',' + str(y+1)] = wall
 			
 		if laserValue('R') > 10:
 			map[str(x) + ',' + str(y-1)] = noWall
@@ -56,47 +56,45 @@ def mapping():
 			map[str(x-1) + ',' + str(y)] = noWall
 		else:
 			map[str(x-1) + ',' + str(y)] = wall
-    
-  	elif d == 2:
-    	if laserValue('L') > 10:
-			map[str(x+1) + ',' + str(y)] = noWall
-		else:
-      		map[str(x+1) + ',' + str(y)] = wall
-			
-		if laserValue('R') > 10:
+    	
+	elif d == 2:
+		if laserValue('L') > 10:
 			map[str(x+1) + ',' + str(y)] = noWall
 		else:
 			map[str(x+1) + ',' + str(y)] = wall
 			
-		if laserValue('F') > 10:
-			map[str(x) + ',' + str(y+1)] = noWall
+		if laserValue('R') > 10:
+			map[str(x-1) + ',' + str(y)] = noWall
 		else:
-			map[str(x) + ',' + str(y+1)] = wall
+			map[str(x-1) + ',' + str(y)] = wall
 			
-		if laserValue('B') > 10:
+		if laserValue('F') > 10:
 			map[str(x) + ',' + str(y-1)] = noWall
 		else:
 			map[str(x) + ',' + str(y-1)] = wall
+			
+		if laserValue('B') > 10:
+			map[str(x) + ',' + str(y+1)] = noWall
+		else:
+			map[str(x) + ',' + str(y+1)] = wall
 		
-  	elif d == 3:
-    	if laserValue('L') > 10:
-			map[str(x+1) + ',' + str(y)] = noWall
+	elif d == 3:
+		if laserValue('L') > 10:
+			map[str(x) + ',' + str(y-1)] = noWall
 		else:
-      		map[str(x+1) + ',' + str(y)] = wall
+      			map[str(x) + ',' + str(y-1)] = wall
 			
 		if laserValue('R') > 10:
-			map[str(x+1) + ',' + str(y)] = noWall
-		else:
-			map[str(x+1) + ',' + str(y)] = wall
-			
-		if laserValue('F') > 10:
 			map[str(x) + ',' + str(y+1)] = noWall
 		else:
 			map[str(x) + ',' + str(y+1)] = wall
 			
-		if laserValue('B') > 10:
-			map[str(x) + ',' + str(y-1)] = noWall
+		if laserValue('F') > 10:
+			map[str(x-1) + ',' + str(y)] = noWall
 		else:
-			map[str(x) + ',' + str(y-1)] = wall
-    
-    
+			map[str(x-1) + ',' + str(y)] = wall
+			
+		if laserValue('B') > 10:
+			map[str(x+1) + ',' + str(y)] = noWall
+		else:
+			map[str(x+1) + ',' + str(y)] = wall
