@@ -13,3 +13,8 @@ http://www.ebay.com/itm/GP2Y0A21YK0F-Sharp-IR-Analog-Distance-Sensor-Distance-10
 
 New SPI/IIC MPU6500 6 Axis Gyro Accel Sensor Module Replace MPU6000 for Arduino
 http://www.ebay.com/itm/New-SPI-IIC-MPU6500-6-Axis-Gyro-Accel-Sensor-Module-Replace-MPU6000-for-Arduino-/272499294388?var=&hash=item3f723940b4:m:mJrfRz96evWmyRzyvxg-NcQ
+
+
+
+Digital Infrared Temperature Sensor for Arduino MLX90615 GY-90615 Module
+http://www.ebay.com/itm/Digital-Infrared-Temperature-Sensor-for-Arduino-MLX90615-GY-90615-Module/400973656570?_trksid=p2047675.c100009.m1982&_trkparms=aid%3D888007%26algo%3DDISC.MBE%26ao%3D1%26asc%3D20131227121020%26meid%3D161af78375194620946bc9b89cb089d4%26pid%3D100009%26rk%3D1%26rkt%3D1%26sd%3D201858030268
