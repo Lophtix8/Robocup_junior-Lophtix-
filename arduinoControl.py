@@ -9,4 +9,4 @@ while running == True:
   laserValue('R')
   laserValue('F')
   laserValue('B')
-  mappingProgram
+  Mapping()
