@@ -18,3 +18,9 @@ http://www.ebay.com/itm/New-SPI-IIC-MPU6500-6-Axis-Gyro-Accel-Sensor-Module-Repl
 
 Digital Infrared Temperature Sensor for Arduino MLX90615 GY-90615 Module
 http://www.ebay.com/itm/Digital-Infrared-Temperature-Sensor-for-Arduino-MLX90615-GY-90615-Module/400973656570?_trksid=p2047675.c100009.m1982&_trkparms=aid%3D888007%26algo%3DDISC.MBE%26ao%3D1%26asc%3D20131227121020%26meid%3D161af78375194620946bc9b89cb089d4%26pid%3D100009%26rk%3D1%26rkt%3D1%26sd%3D201858030268
+
+############################# ROGERS TILLÄGG #############################################################################################
+typer av nerväxlade dcmotorer:
+http://www.ebay.com/itm/12mm-GA12-N20-60RPM-Speed-Metal-Mini-DC12v-Gear-Electric-Motor-Gearwheel-/262885965534?hash=item3d35397ede:g:5zAAAOSwfVpYv9Cw
+
+http://www.ebay.com/itm/12V-DC-60-RPM-Powerful-High-Torque-Gear-Box-Speed-Control-Electric-Motor-25mm-/191963623564?hash=item2cb1ec708c:g:QjoAAOSwjDZYkt3s
