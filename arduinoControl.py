@@ -7,11 +7,12 @@ from mappingProgram import *
 connection = SerialManager(device='/dev/ttyUSB0')
 a = ArduinoApi(connection=connection)
 
+laserL = laserValue('L')
+laserR = laserValue('R')
+laserF = laserValue('F')
+laserB = laserValue('B')
+
 map = {x + ',' + y: start}
 
 while running == True:
-  laserValue('L')
-  laserValue('R')
-  laserValue('F')
-  laserValue('B')
-  Mapping()
+  Mapping(laserL, laserR, laserF, laserB)
