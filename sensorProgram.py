@@ -1,12 +1,12 @@
 from nanpy import (ArduinoApi, SerialManager)
 
-sensorConnection = SerialManager(device='sensor arduino')
+sensorConnection = SerialManager(device='/dev/ttyUSB0')
 A = ArduinoApi(connection=sensorConnection)
 
-laserL = A5
-laserR = A4
-laserF = A3
-laserB = A2
+laserL = 14
+laserR = 15
+laserF = 16
+laserB = 17
 
 
 A.pinMode(laserL, INPUT)
@@ -16,11 +16,15 @@ A.pinMode(laserB, INPUT)
 
 def laserValue(a):
   if a == 'L':
-    return A.analogRead(laserL)
+    length = (A.analogRead(laserL)'Equation')
+    return length
   elif a == 'R':
-    return A.analogRead(laserR)
+    length = (A.analogRead(laserR)'Equation')
+    return length
   elif a == 'F':
-    return A.analogRead(laserF)
+    length = (A.analogRead(laserF)'Equation')
+    return length
   elif a == 'B':
-    return A.analogRead(laserB)
+    length = (A.analogRead(laserB)'Equation')
+    return length
 
