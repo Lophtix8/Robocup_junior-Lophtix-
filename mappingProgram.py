@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 from sensorProgram import *
 from arduinoControl import *
 
