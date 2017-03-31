@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 from nanpy import (ArduinoApi, SerialManager)
 import time
 
