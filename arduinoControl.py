@@ -13,7 +13,5 @@ laserR = laserValue('R')
 laserF = laserValue('F')
 laserB = laserValue('B')
 
-map = {x + ',' + y: start}
-
 while running == True:
   Mapping(laserL, laserR, laserF, laserB)
