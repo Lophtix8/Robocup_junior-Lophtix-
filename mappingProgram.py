@@ -13,7 +13,8 @@ noWall = []
 blackGround = []
 heatedTile = []
 letterTile = []
-start = []
+start = [0, 0]
+crosses = []
 
 def Mapping():
 	##### MAPPING THE ROOM ######################################################
@@ -41,7 +42,35 @@ def Mapping():
 			notDiscovered.append([x, y-2])
 		elif not [x, y-1] in wall or noWall == False:
 			wall.append([x, y-1])
+		
+		##### ADDING CORNERS ####################################################
+		if ([x+1, y] in noWall) and ([x-1, y] in Wall) and ([x, y+1] in noWall) and ([x, y-1] in wall):
+			crosses.append([x, y])
 			
+		elif ([x+1, y] in wall) and ([x-1, y] in noWall) and ([x, y+1] in wall) and ([x, y-1] in noWall):
+			crosses.append([x, y])
+			
+		elif ([x+1, y] in noWall) and ([x-1, y] in wall) and ([x, y+1] in wall) and ([x, y-1] in noWall):
+			crosses.append([x, y])
+			
+		elif ([x+1, y] in wall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in wall):
+			crosses.append([x, y])
+			
+		elif ([x+1, y] in wall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in noWall) and not([x, y] in crosses):
+			crosses.append([x, y])
+		
+		elif ([x+1, y] in noWall) and ([x-1, y] in wall) and ([x, y+1] in noWall) and ([x, y-1] in noWall) and not([x, y] in crosses):
+			crosses.append([x, y])
+			
+		elif ([x+1, y] in noWall) and ([x-1, y] in noWall) and ([x, y+1] in wall) and ([x, y-1] in noWall) and not([x, y] in crosses):
+			crosses.append([x, y])
+			
+		elif ([x+1, y] in noWall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in wall) and not([x, y] in crosses):
+			crosses.append([x,y])
+			
+		elif ([x+1, y] in noWall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in noWall) and not([x, y] in crosses):
+			crosses.append([x,y])
+		
 		##### DECIDING DIRECTION TO TURN ########################################
 		if ([x-2, y] in notDiscovered) and ([x-1, y] in noWall):
 			x = x-2
@@ -92,7 +121,7 @@ def Mapping():
 		elif not [x-1, y] in wall or noWall:
 			wall.append([x-1, y])
 			
-		##### DECIDING DIRECTION TO TURN########################################
+		##### DECIDING DIRECTION TO TURN ########################################
 		if ([x, y+2] in notDiscovered) and ([x, y+1] in noWall):
 			y = y+2
 			d = 0
@@ -138,7 +167,8 @@ def Mapping():
 			noWall.append([x, y+1])
 		elif not [x, y+1] in wall or noWall:
 			wall.append([x, y+1])
-			
+
+		##### DECIDING DIRECTION TO TURN ##############################################
 		if ([x+2, y] in notDiscovered) and ([x+2, y] in noWall):
 			x = x+2
 			d = 1
@@ -187,7 +217,8 @@ def Mapping():
 				notDiscovered.append(x+2, y)
 		elif not [x+1, y] in wall or noWall:
 			wall.append([x+1, y])
-			
+		
+		##### DECIDING DIRECTION TO TURN ########################################
 		if ([x, y-2] in notDiscovered) and ([x, y-1] in noWall):
 			y = y-2
 			d = 2
