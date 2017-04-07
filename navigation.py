@@ -28,11 +28,29 @@ class Navigation:
 			if result = True:
 				return True
 			
-		if c < 0 and e == 0:
+		elif c < 0 and e == 0:
 			result = True
 			for f in range(d-1, c, -1):
 				if ([f, y] not in noWall) and ([f, y] in wall):
 					result = False
 			
-			if result = True:ö.
+			if result = True:
+				return True
+			
+		if c > 0 and e == 1:
+			result = True
+			for f in range(d+1, c):
+				if ([x, f] not in noWall) and ([x, f] in wall):
+					result = False
+			
+			if result = True:
+				return True
+			
+		elif c < 0 and e == 1:
+			result = True
+			for f in range(d-1, c, -1):
+				if ([x, f] not in noWall) and ([x, f] in wall):
+					result = False
+			
+			if result = True:
 				return True
