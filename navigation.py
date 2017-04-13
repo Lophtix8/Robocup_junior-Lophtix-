@@ -5,15 +5,28 @@ class Navigation:
 			Value2 = int(crosses[a][1]) - y
 			crosses[a] = [crosses[a][0], crosses[a][1], Value, Value2]
 		
-		crosses.sort(key = lambda x: int(x[2]))
+		crosses.sort(key = lambda x: abs(int(x[2])))
 		found = False
-		a = 0
+		checkingValue = 0
+		##### Checking for the closest cross x-vise ############################
 		while found == False:
-			if checkPossibility(crosses[a][0], crosses[a][1], Value, x, 0):
+			if int(crosses[checkingValue][3]) == 0 and checkPossibility(crosses[checkingValue][0], crosses[checkingValue][1], Value, x, 0) and crosses[checkingValue][2] != 0:
 				found = True
+				closestXCross = crosses[checkingValue]
 				
 			else:
-				a = a+1 
+				checkingValue = checkingValue+1
+				
+		##### Checking for the closest cross y-vise ############################
+		found = False
+		checkingValue = 0
+		while found == False:
+			if int(crosses[checkingValue][2]) == 0 and checkPossibility(crosses[checkingValue][0], crosses[checkingvalue][1], Value2, y, 1) and crosses[checkingValue][3] != 0:
+				found = True
+				closestYCross = crosses[checkingValue]
+				
+			else:
+				checkingValue = checkingValue+1
 
 	def checkPossibility(a, b, c, d, e):
 		if c == 0:
