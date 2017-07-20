@@ -45,31 +45,31 @@ def Mapping():
 		
 		##### ADDING CORNERS ####################################################
 		if ([x+1, y] in noWall) and ([x-1, y] in Wall) and ([x, y+1] in noWall) and ([x, y-1] in wall):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in wall) and ([x-1, y] in noWall) and ([x, y+1] in wall) and ([x, y-1] in noWall):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in noWall) and ([x-1, y] in wall) and ([x, y+1] in wall) and ([x, y-1] in noWall):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in wall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in wall):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in wall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in noWall) and not([x, y] in crosses):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 		
 		elif ([x+1, y] in noWall) and ([x-1, y] in wall) and ([x, y+1] in noWall) and ([x, y-1] in noWall) and not([x, y] in crosses):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in noWall) and ([x-1, y] in noWall) and ([x, y+1] in wall) and ([x, y-1] in noWall) and not([x, y] in crosses):
-			crosses.append([x, y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in noWall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in wall) and not([x, y] in crosses):
-			crosses.append([x,y])
+			crosses.append([x, y, len(crosses)])
 			
 		elif ([x+1, y] in noWall) and ([x-1, y] in noWall) and ([x, y+1] in noWall) and ([x, y-1] in noWall) and not([x, y] in crosses):
-			crosses.append([x,y])
+			crosses.append([x, y, len(crosses)])
 		
 		##### DECIDING DIRECTION TO TURN ########################################
 		if ([x-2, y] in notDiscovered) and ([x-1, y] in noWall):
