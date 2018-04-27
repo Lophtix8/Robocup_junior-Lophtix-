@@ -1,5 +1,4 @@
 #!/usr/local/bin/python3
-from sensorProgram import *
 from arduinoControl import *
 
 x = 0
@@ -17,21 +16,26 @@ start = [0, 0]
 crosses = []
 
 def Mapping():
+        serialWrite(5)
+        color = int(ser.readline(), 10)
+        if color == 0;
+            serialWrite(1)
+        serialWrite(4)
 	##### MAPPING THE ROOM ######################################################
 	if d == 0:
-		if (laserValue('L') > 10) and not ([x-1, y] in wall or noWall == False):
+		if ((US[0] and US[3]) > 10) and not ([x-1, y] in wall or noWall == False):
 			noWall.append([x-1, y])
 			notDiscovered.append([x-2, y])
 		elif not [x-1, y] in wall or noWall == False:
 			wall.append([x-1, y])
 			
-		if (laserValue('R') > 10) and not ([x+1, y] in wall or noWall == False):
+		if ((US[2] and US[5]) > 10) and not ([x+1, y] in wall or noWall == False):
 			noWall.append([x+1, y])
 			notDiscovered.append([x+2, y])
 		elif not [x+1, y] in wall or noWall == False:
 			wall.append([x+1, y])
 			
-		if (laserValue('F') > 10) and not ([x, y+1] in wall or noWall == False):
+		if (US[1] > 10) and not ([x, y+1] in wall or noWall == False):
 			noWall.append([x, y+1])
 			notDiscovered.append([x, y+2])
 		elif not [x, y+1] in wall or noWall == False:
@@ -75,41 +79,43 @@ def Mapping():
 		if ([x-2, y] in notDiscovered) and ([x-1, y] in noWall):
 			x = x-2
 			d = 3
-			turnLeft()
+			serialWrite(3)
+			serialWrite(0)
 		
 		elif ([x+2, y] in notDiscovered) and ([x+1, y] in noWall):
 			x = x+2
 			d = 1
-			turnRight()
+			serialWrite(2)
+			serialWrite(0)
 			
 		elif ([x, y+2] in notDiscovered) and ([x, y+1] in noWall):
 			y = y+2
 			d = 0
-			turnForward()
+			serialWrite(0)
 			
 		elif ([y, y-2] in notDiscovered) and ([x, y-1] in noWall):
 			y = y-2
 			d = 2
-			turnBackwards()
+			serialWrite(1)
 		
 		else:
 			
 	
 	elif d == 1:
-		if (laserValue('L') > 10) and not ([x, y+1] in wall or noWall):
+		if ((US[0] and US[3]) > 10) and not ([x, y+1] in wall or noWall):
 			noWall.append([x, y+1])
 			notDiscovered.append([x, y+2])
 			
 		elif not [x, y+1] in wall or noWall:
 			wall.append([x, y+1])
 			
-		if (laserValue('R') > 10) and not ([x, y-1] in wall or noWall):
+		if ((US[2] and US[5]) > 10) and not ([x, y-1] in wall or noWall):
 			noWall.append([x, y-1])
 			notDiscovered.append([x, y-2])
 		elif not [x, y-1] in wall or noWall:
 			wall.append([x, y-1])
 			
-		if (laserValue('F') > 10) and not ([x+1, y] in wall or noWall):
+		if (US[1] > 10) and not ([x+1, y] in wall or noWall):
 			noWall.append[x+1, y]
 			notDiscovered.append([x+2, y])
 		elif not [x+1, y] in wall or noWall:
@@ -125,39 +131,41 @@ def Mapping():
 		if ([x, y+2] in notDiscovered) and ([x, y+1] in noWall):
 			y = y+2
 			d = 0
-			turnLeft()
+			serialWrite(3)
+			serialWrite(0)
 		
 		elif ([x, y-2] in notDiscovered) and ([x, y-1] in noWall):
 			y = y-2
 			d = 2
-			turnRight()
+			serialWrite(2)
+			serialWrite(0)
 		
 		elif ([x+2, y] in notDiscovered) and ([x+1, y] in noWall):
 			x = x+2
 			d = 1
-			turnForward()
+			serialWrite(0)
 			
 		elif ([x, y-2] in notDiscovered) and ([x, y-1] in noWall):
 			x = x-2
 			d = 3
-			turnBackwards()
+			serialWrite(1)
     	
 	elif d == 2:
-		if (laserValue('L') > 10) and not ([x+1, y] in wall or noWall):
+		if ((US[0] and US[3]) > 10) and not ([x+1, y] in wall or noWall):
 			noWall.append([x+1, y])
 			if not [x+1, y] in discovered:
 				notDiscovered.append([x+2, y])
 		elif not [x+1, y] in wall or noWall:
 			wall.append([x+1, y])
 			
-		if (laserValue('R') > 10) and not ([x-1, y] in wall or noWall):
+		if ((US[2] and US[5]) > 10) and not ([x-1, y] in wall or noWall):
 			noWall.append([x-1, y])
 			if not [x-1, y] in discovered:
 				notDiscovered.append([x-2, y])
 		elif not [x-1, y] in wall or noWall:
 			wall.append([x-1, y])
 			
-		if (laserValue('F') > 10) and not ([x, y-1] in wall or noWall):
+		if (US[1] > 10) and not ([x, y-1] in wall or noWall):
 			noWall.append([x, y-1])
 			notDiscovered.append([x, y-2])
 		elif not [x, y-1] in wall or noWall:
@@ -172,39 +180,41 @@ def Mapping():
 		if ([x+2, y] in notDiscovered) and ([x+2, y] in noWall):
 			x = x+2
 			d = 1
-			turnLeft()
+			serialWrite(3)
+			serialWrite(0)
 			
 		elif ([x-2, y] in notDiscovered) and ([x-1, y] in noWall):
 			x = x-2
 			d = 3
-			turnRight()
+			serialWrite(2)
+			serialWrite(0)
 			
 		elif ([x, y-2] in notDiscovered) and ([x, y-1] in noWall):
 			y = y-2
 			d = 2
-			turnForward()
+			serialWrite(0)
 		
 		elif ([x, y+2] in notDiscovered) and ([x, y+1] in noWall):
 			y = y+2
 			d = 0
-			turnBackwards()
+			serialWrite(1)
 		
 	elif d == 3:
-		if (laserValue('L') > 10) and not ([x, y-1] in wall or noWall):
+		if ((US[0] and US[3]) > 10) and not ([x, y-1] in wall or noWall):
 			noWall.append([x, y-1])
 			if not [x, y-2] in discovered:
 				notDiscovered.append([x, y-2])
 		elif not [x, y-1] in wall or noWall:
 			wall.append([x, y-1])
 			
-		if (laserValue('R') > 10) and not ([x, y+1] in wall or noWall):
+		if ((US[2] and US[5]) > 10) and not ([x, y+1] in wall or noWall):
 			noWall.append([x, y+1])
 			if not [x, y+2] in discovered:
 				notDiscovered.append([x, y+2])
 		elif not [x, y+1] in wall or noWall:
 			wall.append([x, y+1])
 			
-		if not (laserValue('F') > 10) and not ([x-1, y] in wall or noWall):
+		if not (US[1] > 10) and not ([x-1, y] in wall or noWall):
 			noWall.append([x-1, y])
 			if not [x-2, y] in discovered:
 				notDiscovered.append([x-2, y])
@@ -222,19 +232,21 @@ def Mapping():
 		if ([x, y-2] in notDiscovered) and ([x, y-1] in noWall):
 			y = y-2
 			d = 2
-			turnLeft()
+			serialWrite(3)
+			serialWrite(0)
 		
 		elif ([x, y+2] in notDiscovered) and ([x, y+1] in noWall):
 			y = y+2
 			d = 0
-			turnRight()
+			serialWrite(2)
+			serialWrite(0)
 			
 		elif ([x-2, y] in notDiscovered) and ([x-1, y] in noWall):
 			x = x-2
 			d = 3
-			turnForward()
+			serialWrite(0)
 			
 		elif ([x+2, y]) and ([x+1, y] in noWall):
 			x = x+2
 			d = 1
-			turnBackwards()
+			serialWrite(1)
