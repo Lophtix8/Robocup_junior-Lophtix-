@@ -1,41 +1,56 @@
-trig[] = {2,4,6,A0,A2,A4};
-echo[] = {3,5,7,A1,A3,A5};
-enA = 10;
-enB = 11;
-A1 = 9;
-A2 = 8;
-B1 = 12;
-B2 = 13;
+int trig[] = {2,4,6,14,4,18};
+int echo[] = {3,5,7,15,17,19};
+int enA = 10;
+int enB = 11;
+int Am1 = 9;
+int Am2 = 8;
+int Bm1 = 12;
+int Bm2 = 13;
+int Light = 16;
 
 void setup() {
   pinMode(enA, OUTPUT);
   pinMode(enB, OUTPUT);
-  pinMode(A1, OUTPUT);
-  pinMode(A2, OUTPUT);
-  pinMode(B1, OUTPUT);
-  pinMode(B2, OUTPUT);
-  pinMode(trig[], OUTPUT);
-  pinMode(echo[], INPUT);
+  pinMode(Am1, OUTPUT);
+  pinMode(Am2, OUTPUT);
+  pinMode(Bm1, OUTPUT);
+  pinMode(Bm2, OUTPUT);
+  for(int pin = 0; pin<6; pin++){
+    pinMode(trig[pin], OUTPUT);
+    pinMode(echo[pin], INPUT);
+  }
+  pinMode(Light, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
   if (Serial.available()){
     int value = Serial.read();
-    
-    if (value = 48){//Forward
+    if (value == 48){//Forward
       
-    } else if(value = 49){//Backwards
-   
-    } else if(value = 50){//TurnRight
+    } else if(value == 49){//Backwards
     
-    } else if(value = 51){//TurnBack
+    } else if(value == 50){//TurnRight
     
-    } else if(value = 52){//USfront
+    } else if(value == 51){//TurnLeft
     
-    } else if(value = 53){//USback
-    
+    } else if(value == 52){//US
+      for(int i=0;i<6;i++){
+        int t = trig[i];
+        int e = echo[i];
+        digitalWrite(t, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(t, LOW);
+        int duration = pulseIn(e, HIGH);
+        Serial.println(duration);
+      } 
+    } else if(value == 53){
+      color = analogRead(Light);
+      if (color < x){
+        Serial.println(0);
+      }  else if (color > y){
+        Serial.println(1);
+      }
     }
-      
-  }
+  }    
 }
