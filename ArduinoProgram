@@ -1,0 +1,41 @@
+trig[] = {2,4,6,A0,A2,A4};
+echo[] = {3,5,7,A1,A3,A5};
+enA = 10;
+enB = 11;
+A1 = 9;
+A2 = 8;
+B1 = 12;
+B2 = 13;
+
+void setup() {
+  pinMode(enA, OUTPUT);
+  pinMode(enB, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(B1, OUTPUT);
+  pinMode(B2, OUTPUT);
+  pinMode(trig[], OUTPUT);
+  pinMode(echo[], INPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()){
+    int value = Serial.read();
+    
+    if (value = 48){//Forward
+      
+    } else if(value = 49){//Backwards
+   
+    } else if(value = 50){//TurnRight
+    
+    } else if(value = 51){//TurnBack
+    
+    } else if(value = 52){//USfront
+    
+    } else if(value = 53){//USback
+    
+    }
+      
+  }
+}
