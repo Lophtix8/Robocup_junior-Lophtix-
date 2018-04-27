@@ -1,17 +1,14 @@
 #!/usr/local/bin/python3
-from nanpy import (ArduinoApi, SerialManager)
-import RPi.GPIO as GPIO
-from motorProgram import *
-from sensorProgram import *
-from mappingProgram import *
+import serial
+global US
+US = []
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 
-connection = SerialManager(device='/dev/ttyUSB0')
-a = ArduinoApi(connection=connection)
+def serialWrite(a):
+    ser.write(str(a).encode('utf-8'))
 
-laserL = laserValue('L')
-laserR = laserValue('R')
-laserF = laserValue('F')
-laserB = laserValue('B')
-
-while running == True:
-  Mapping(laserL, laserR, laserF, laserB)
+serialWrite(4)
+for i in range(6):
+    US.append(int(ser.readline(), 10))
+    
+print(US)
